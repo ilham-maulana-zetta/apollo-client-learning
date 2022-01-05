@@ -1,1 +1,32 @@
-<p>school-table works!</p>
+<section class="p-4">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z0 w-full">
+  
+        <!-- Number Column -->
+        <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let schools; let i = index"> {{parseNo(i)}} </td>
+          </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="long_name">
+          <th mat-header-cell *matHeaderCellDef> School Name </th>
+          <td mat-cell *matCellDef="let schools"> {{schools.long_name}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="short_name">
+          <th mat-header-cell *matHeaderCellDef> School Short Name </th>
+          <td mat-cell *matCellDef="let schools"> {{schools.short_name}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let schools" class="capitalize"> {{schools.status}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</section>
+

@@ -14,23 +14,28 @@ export class TitleService {
 
   constructor(private apollo: Apollo) { }
 
-  // getTitles(status: boolean): Observable<any> {
-  //   return this.apollo.query({
-  //     query: gql`
-  //     query ($status: Boolean){
-  //       GetAllTitles (
-  //         is_published: $status
-  //       ) {
-  //         _id
-  //         short_name
-  //       }
-  //     }
-  //     `,
-  //     variables: {
-  //       status
-  //     }
-  //   })
-  // }
+  getTitles(status: boolean): Observable<any> {
+    return this.apollo.query({
+      query: gql`
+      query ($status: Boolean){
+        GetAllTitles (
+          is_published: $status
+        ) {
+          _id
+          short_name
+          long_name
+          rncp_level
+          rncp_level_europe
+          year_of_certification
+          journal_date
+        }
+      }
+      `,
+      variables: {
+        status
+      }
+    })
+  }
 
 
 

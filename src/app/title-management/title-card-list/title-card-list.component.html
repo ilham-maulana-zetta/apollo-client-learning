@@ -1,7 +1,19 @@
-<!-- <div class="p-grid">
-  <div *ngFor="let title of titles" class="p-col-12">
-    <span>
-      {{ title?.short_name }}
-    </span>
-  </div>
-</div> -->
+<section class="w-screen grid grid-cols-4 gap-4 p-4">
+  <mat-card class="bg-blue-100 rounded-lg mat-elevation-z0 hover:shadow-lg cursor-pointer" *ngFor="let title of titles">
+    <mat-card-header>
+      <mat-card-title class="text-blue-900">{{ title?.long_name }}</mat-card-title>
+      <mat-card-subtitle class="font-medium text-blue-900">({{ title?.short_name }})</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="grid grid-cols-2 gap-2">
+        <span class="text-blue-900 font-medium">RNCP Level : {{ title?.rncp_level }}</span>
+        <span class="text-blue-900 font-medium">RNCP Level Europe : {{ title?.rncp_level_europe }}</span>
+        <span class="text-blue-900 font-medium" *ngIf="title?.year_of_certification">Year of Certification : {{ title?.year_of_certification }}</span>
+        <span class="text-blue-900 font-medium" *ngIf="!title?.year_of_certification">Year of Certification : -</span>
+        <span class="text-blue-900 font-medium" *ngIf="title?.journal_date">Journal Date : {{ title?.journal_date }}</span>
+        <span class="text-blue-900 font-medium" *ngIf="!title?.journal_date">Journal Date : -</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+

@@ -1,20 +1,19 @@
-<div class="p-grid">
-  <div class="p-col-12">
-    <a [routerLink]="['/home']">Home</a>
+<div class="flex flex-row items-center space-x-2 p-4">
+  <div class="py-1 px-3 font-semibold rounded-md bg-blue-100 text-blue-900 cursor-pointer hover:shadow-lg">
+    <a [routerLink]="['/home']" class="text-xl">Home</a>
   </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/title']">Title Management</a>
+  <div class="py-1 px-3 font-semibold rounded-md bg-red-100 text-red-900 cursor-pointer hover:shadow-lg">
+    <a [routerLink]="['/title']" class="text-xl">Title Management</a>
   </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/schools']">School Management</a>
+  <div class="py-1 px-3 font-semibold rounded-md bg-green-100 text-green-900 cursor-pointer hover:shadow-lg">
+    <a [routerLink]="['/schools']" class="text-xl">School Management</a>
   </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/users']">User Management</a>
+  <div class="py-1 px-3 font-semibold rounded-md bg-purple-100 text-purple-900 cursor-pointer hover:shadow-lg">
+    <a [routerLink]="['/users']" class="text-xl">User Management</a>
   </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/promo']">Promo</a>
+  <div class="py-1 px-3 font-semibold rounded-md bg-yellow-100 text-yellow-900 cursor-pointer hover:shadow-lg">
+    <a [routerLink]="['/promo']" class="text-xl">Promo</a>
   </div>
 </div>
-<br>
 
 <router-outlet></router-outlet>

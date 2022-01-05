@@ -1,11 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { SubSink } from 'subsink';
 import { TitleService } from '../title.service';
 
 @Component({
   selector: 'app-title-card-list',
   templateUrl: './title-card-list.component.html',
-  styleUrls: ['./title-card-list.component.scss']
+  styleUrls: ['./title-card-list.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TitleCardListComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
@@ -16,29 +17,29 @@ export class TitleCardListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    // this.getUnpublishedTitles();
+    this.getPublishedTitles();
   }
 
-  // getPublishedTitles() {
-  //   const status = true;
-  //   this.subs.sink = this.titleService.getTitles(status).subscribe(resp => {
-  //     console.log(resp);
-  //     this.formatTitlesData(resp);
-  //   })
-  // }
+  getPublishedTitles() {
+    const status = true;
+    this.subs.sink = this.titleService.getTitles(status).subscribe(resp => {
+      console.log(resp);
+      this.formatTitlesData(resp);
+    })
+  }
 
-  // getUnpublishedTitles() {
-  //   const status = false;
-  //   this.subs.sink = this.titleService.getTitles(status).subscribe(resp => {
-  //     console.log(resp);
-  //     this.formatTitlesData(resp);
-  //   })
-  // }
+  getUnpublishedTitles() {
+    const status = false;
+    this.subs.sink = this.titleService.getTitles(status).subscribe(resp => {
+      console.log(resp);
+      this.formatTitlesData(resp);
+    })
+  }
 
-  // formatTitlesData(data: any) {
-  //   this.titles = data.data.GetAllTitles;
-  //   console.log(this.titles);
-  // }
+  formatTitlesData(data: any) {
+    this.titles = data.data.GetAllTitles;
+    console.log(this.titles);
+  }
 
   ngOnDestroy() {
     this.subs.unsubscribe();
